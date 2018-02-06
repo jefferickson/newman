@@ -1,0 +1,22 @@
+{
+  "name": "newman",
+  "version": "1.0.0",
+  "description": "Batch your e-mail",
+  "dependencies": {
+    "serverless": "^1.26.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "deploy": "serverless deploy -v -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefferickson/newman.git"
+  },
+  "author": "Jeff Erickson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jefferickson/newman/issues"
+  },
+  "homepage": "https://github.com/jefferickson/newman#readme"
+}

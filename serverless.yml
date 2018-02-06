@@ -1,0 +1,38 @@
+service: newman
+
+provider:
+  name: aws
+  versionFunctions: false
+  runtime: python2.7
+  memorySize: 512
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "ssm:GetParametersByPath"
+        - "ssm:PutParameter"
+      Resource: "*"
+
+package:
+  exclude:
+    - node_modules/**
+    - '**/*.md'
+    - '**/*.pyc'
+    - Dockerfile
+    - '**/*.json'
+    - '**/*.yml'
+    - '**/*.txt'
+    - '**/*.sh'
+    - test/**
+    - boto**/**
+    - newman_setup.py
+
+functions:
+  newman:
+    description: Move messages from Newman to INBOX
+    handler: newman.handler
+    events:
+      - schedule:
+          rate: ${self:custom.vars.newman_cron}
+
+custom:
+  vars: ${file(./vars.yml)}

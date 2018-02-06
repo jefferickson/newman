@@ -1,0 +1,9 @@
+# npm
+node_modules/
+
+# Python
+*.pyc
+
+# Project-specific files
+.env
+vars.yml
